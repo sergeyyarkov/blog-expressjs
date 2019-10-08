@@ -73,25 +73,23 @@ app.get('/delete/:id', (req, res) => {
 
 // запрос на редактирование
 app.post('/update', (req, res) => {
-    const id = req.body.id,
-          title = req.body.title,
-          date = req.body.date,
-          description = req.body.description;
-
     const data = {
         id: req.body.id,
         title: req.body.title,
         date: req.body.date,
         description: req.body.description
     };
-    
-    for (let k in data) {
-        console.log(k + ' : ' + data[k]);
-    }
-
-    res.send(`<p>ID: ${id}<br>Название: ${title}<br>Дата: ${date}<br>Описание: ${description}</p>`);
+    conn.query(
+        `UPDATE posts SET title='${data.title}', date='${data.date}', description='${data.description}' WHERE id=${data.id}`,
+        function(err, result) {
+            if (!err) {
+                res.send('Пост был успешно отредактирован');
+            } else {
+                res.status(404).send('<h1>404 Not found</h1>');
+            }
+        }
+    );
 });
-// UPDATE `blog`.`posts` SET `description` = 'gfhj' WHERE (`id` = '10');
 
 // 404 redirect error
 app.use((req, res) => {

@@ -58,3 +58,14 @@ input[type="date"] {
 .modal {
     min-width: 500px;
 }
+.post-block_add {
+    border: 6px dashed;
+    text-align: center;
+    padding: 70px 0px 70px 0px;
+    cursor: pointer;
+    transition: all .2s;
+    margin-top: 3rem;
+}
+.post-block_add:hover { 
+    opacity: .9;
+}

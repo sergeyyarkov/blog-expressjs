@@ -16,10 +16,10 @@ function updatePost() {
 
             btnSend.addEventListener('click', (e) => {
                 let idInputValue = idInput.value;
-                
+
                 if (!isNaN(idInputValue) == false) {
                     alert('Поле ID должен быть числом!');
-                    e.preventDefault();                    
+                    e.preventDefault();           
                 } else {
                     idInputValue = idInputValue.trim();
                 }
