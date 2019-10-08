@@ -78,6 +78,17 @@ app.post('/update', (req, res) => {
           date = req.body.date,
           description = req.body.description;
 
+    const data = {
+        id: req.body.id,
+        title: req.body.title,
+        date: req.body.date,
+        description: req.body.description
+    };
+    
+    for (let k in data) {
+        console.log(k + ' : ' + data[k]);
+    }
+
     res.send(`<p>ID: ${id}<br>Название: ${title}<br>Дата: ${date}<br>Описание: ${description}</p>`);
 });
 // UPDATE `blog`.`posts` SET `description` = 'gfhj' WHERE (`id` = '10');

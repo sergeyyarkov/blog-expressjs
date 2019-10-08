@@ -3,11 +3,15 @@ div(class="modal-mask")
         div(class="modal-head")
             p(class="modal-title") Изменить запись
         div(class="modal-body")
-            form(action="#" method="POST")
-                input(type="text" value="id" placeholder="ID изменяемой записи")
-                input(type="text" name="title" placeholder="Название")
-                input(type="text" name="date" placeholder="Дата")
-                textarea(type="text" name="description" placeholder="Описание")
+            form(action="/update" method="POST")
+                label(for="id") ID изменяемой записи
+                input(id="id" type="text" value="id" required)
+                label(for="title") Название
+                input(id="title" type="text" name="title" placeholder="Запись" required)
+                label(for="date") Дата
+                input(id="date" type="date" name="date" required)
+                label(for="description") Описание
+                textarea(id="description" type="text" name="description" placeholder="Описание" required)
                 div(class="modal-footer")
-                    button(class="button-primary") Принять
-            button(class="button-danger btn-close") Закрыть окно
+                    button(class="button-primary btn-send" type="submit") Принять
+                    button(class="button-danger btn-close") Закрыть окно
