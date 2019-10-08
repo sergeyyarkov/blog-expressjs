@@ -1,11 +1,9 @@
-div(class="modal-mask modal-update")
+div(class="modal-mask modal-add")
     div(class="modal")
         div(class="modal-head")
-            p(class="modal-title") Изменить запись
+            p(class="modal-title") Добавить запись
         div(class="modal-body")
-            form(action="/update" method="POST")
-                label(for="id") ID изменяемой записи
-                input(id="id" type="text" value="id" required)
+            form(action="/add" method="POST")
                 label(for="title") Название
                 input(id="title" type="text" name="title" placeholder="Запись" required)
                 label(for="date") Дата

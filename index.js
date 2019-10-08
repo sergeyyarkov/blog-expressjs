@@ -62,10 +62,29 @@ app.get('/delete/:id', (req, res) => {
         'DELETE FROM posts WHERE id='+id,
         function(err, result) {
             if (!err && result.affectedRows != 0) {
-                res.send(`Пост под id ${id} был удален.`);
+                res.redirect('/');
             } else {
                 res.status(404).send('<h1>404 Not found</h1>');
                 console.log(err);
+            }
+        }
+    );
+});
+
+// запрос на добавление
+app.post('/add', (req, res) => {
+    const data = {
+        title: req.body.title,
+        date: req.body.date,
+        description: req.body.description
+    };
+    conn.query(
+        `INSERT INTO posts (title, date, description) VALUES ('${data.title}', '${data.date}', '${data.description}')`,
+        function(err, result) {
+            if (!err && result.affectedRows != 0) {
+                res.redirect('/');
+            } else {
+                res.status(404).send('<h1>404 Not found</h1>');
             }
         }
     );
@@ -82,8 +101,8 @@ app.post('/update', (req, res) => {
     conn.query(
         `UPDATE posts SET title='${data.title}', date='${data.date}', description='${data.description}' WHERE id=${data.id}`,
         function(err, result) {
-            if (!err) {
-                res.send('Пост был успешно отредактирован');
+            if (!err && result.affectedRows != 0) {
+                res.redirect('/');
             } else {
                 res.status(404).send('<h1>404 Not found</h1>');
             }
