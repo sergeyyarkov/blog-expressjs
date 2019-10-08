@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: sans-serif;
+}
+p,h1,h2,h3,h4,h5,h6 {
+    padding: 0;
+    margin: 0;
+}
+textarea {
+    resize: none;
+    margin-top: 5px;
+}
+.container {
+    max-width: 1100px !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+.post-content__title {
+    margin-top: 20px;
+}
+.post-content__date, .post-content__description, .post-content__options {
+    margin-top: 8px;
+}
+.post-content__options {
+    display: flex;
+    justify-content: flex-end;
+}
+.modal-mask {
+    display: none;
+}
+.modal-body input {
+    margin-top: 5px;
+}
+.modal-footer {
+    padding-left: 0px !important;
+}
+.modal {
+    min-width: 500px;
+}

@@ -1,0 +1,13 @@
+each val, index in posts  
+    div(class="post-block__content")
+        div(class="post-content__title")
+            h2
+                a(href="/post/"+val['id']) #{val['title']}
+            div(class="post-content__date")
+                small #{val['date']}
+            div(class="post-content__description")
+                p #{val['description']}
+            div(class="post-content__options")
+                a(href="/delete/"+val['id'])
+                    button(class="delete-post button-danger") Удалить
+                button(class="update-post button-warning" data-id=val['id']) Редактировать

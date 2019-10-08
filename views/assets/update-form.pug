@@ -1,0 +1,13 @@
+div(class="modal-mask")
+    div(class="modal")
+        div(class="modal-head")
+            p(class="modal-title") Изменить запись
+        div(class="modal-body")
+            form(action="#" method="POST")
+                input(type="text" value="id" placeholder="ID изменяемой записи")
+                input(type="text" name="title" placeholder="Название")
+                input(type="text" name="date" placeholder="Дата")
+                textarea(type="text" name="description" placeholder="Описание")
+                div(class="modal-footer")
+                    button(class="button-primary") Принять
+            button(class="button-danger btn-close") Закрыть окно
